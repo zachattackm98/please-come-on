@@ -4,114 +4,341 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2Crew Pet Cleanup – Colorado’s Trusted Pooper Scoopers</title>
-  <link rel="stylesheet" href="styles.css">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      padding: 40px;
+      color: #333;
+      margin: 0;
+    }
+    nav {
+      width: 100%;
+      background-color: #00796b;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropbtn {
+      background-color: #00796b;
+      color: white;
+      padding: 10px 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
     .dropdown-content {
       display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
     }
-    .dropdown.show .dropdown-content {
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
       display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    header img {
+      width: 300px;
+      display: block;
+      margin: 20px auto;
+    }
+    h1, h2, h3 {
+      color: #00796b;
+      text-align: center;
+    }
+    p, li, label {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+    .cta-button {
+      display: block;
+      width: fit-content;
+      margin: 20px auto;
+      background-color: #00796b;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      text-decoration: none;
+    }
+    .cta-button:hover {
+      background-color: #004d40;
+    }
+    .section {
+      margin: 60px auto;
+      padding: 20px;
+      max-width: 900px;
+    }
+    .feature-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .feature-list li {
+      margin-bottom: 15px;
+    }
+    form {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .form-step {
+      display: none;
+    }
+    .form-step.active {
+      display: block;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .buttons {
+      text-align: right;
+    }
+    button {
+      padding: 12px 24px;
+      margin-left: 10px;
+      background: #00796b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #004d40;
+    }
+    .hidden {
+      display: none;
+    }
+    blockquote {
+      font-style: italic;
+      background: #e0f2f1;
+      padding: 15px;
+      border-left: 5px solid #00796b;
+      margin: 20px auto;
+      max-width: 800px;
     }
   </style>
 </head>
 <body class="homepage">
-  <nav>
-    <div class="dropdown" id="dropdownMenu">
-      <button class="dropbtn" onclick="toggleDropdown()">Menu ▾</button>
-      <div class="dropdown-content">
-        <a href="quote.html">Book Our Service</a>
-        <a href="about.html">About Us</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="service.html">Service Area</a>
-        <a href="index.html">Home</a>
+
+<section class="section" id="form">
+  <form id="cleanupForm">
+    <!-- Step 1 -->
+    <div class="form-step active">
+      <h3>Contact Info</h3>
+      <label>Full Name:</label>
+      <input type="text" name="name" required>
+      <label>Phone Number:</label>
+      <input type="tel" name="phone" required>
+      <label>Email:</label>
+      <input type="email" name="email" required>
+      <label>Address:</label>
+      <input type="text" name="address" required>
+      <div class="buttons">
+        <button type="button" onclick="nextStep()">Next</button>
       </div>
     </div>
-  </nav>
+    <!-- Step 2 -->
+    <div class="form-step">
+      <h3>Pet & Yard Info</h3>
+      <label>How many dogs?</label>
+      <select name="dogs" required>
+        <option value="">Select</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+      </select>
+      <label>Yard size:</label>
+      <select name="yardSize" required>
+        <option value="">Select</option>
+        <option>1/2 acre or less</option>
+        <option>1/2 acre or more</option>
+      </select>
+      <label>Last cleaned:</label>
+      <select name="lastClean" required>
+        <option value="">Select</option>
+        <option>Less than 1 week</option>
+        <option>Less than 2 weeks</option>
+        <option>Less than a month</option>
+        <option>1 to 3 months</option>
+        <option>More than 3 months</option>
+      </select>
+      <div class="buttons">
+        <button type="button" onclick="prevStep()">Back</button>
+        <button type="button" onclick="nextStep()">Next</button>
+      </div>
+    </div>
+    <!-- Step 3 -->
+    <div class="form-step">
+      <h3>Choose a Plan</h3>
+      <label><input type="radio" name="plan" value="1 clean/week - $20.00" required> 1 clean/week - $20.00</label>
+      <label><input type="radio" name="plan" value="2 cleans/week - $15.00"> 2 cleans/week - $15.00</label>
+      <label><input type="radio" name="plan" value="3 cleans/week - $15.00"> 3 cleans/week - $15.00</label>
+      <label><input type="radio" name="plan" value="Every other week - $35.00"> Every other week - $35.00</label>
+      <div class="buttons">
+        <button type="button" onclick="prevStep()">Back</button>
+        <button type="button" onclick="nextStep()">Next</button>
+      </div>
+    </div>
+    <!-- Step 4 -->
+    <div class="form-step">
+      <h3>Schedule Pickup</h3>
+      <label>Select a Date:</label>
+      <input type="date" name="date" required>
+      <div class="buttons">
+        <button type="button" onclick="prevStep()">Back</button>
+        <button type="button" onclick="nextStep()">Next</button>
+      </div>
+    </div>
+    <!-- Step 5 -->
+    <div class="form-step">
+      <h3>Yard Access Info</h3>
+      <label>Yard access location:</label>
+      <select name="accessLocation" required>
+        <option value="">Select</option>
+        <option>Left</option>
+        <option>Back</option>
+        <option>Right</option>
+      </select>
+      <label>Comments:</label>
+      <textarea name="accessComments" required></textarea>
+      <label>Community gate code?</label>
+      <select name="communityGate" id="communityGate" required onchange="toggleInput(this, 'communityCode')">
+        <option value="">Select</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <input type="text" id="communityCode" name="communityCode" placeholder="Enter community code" class="hidden">
+      <label>House gate code?</label>
+      <select name="houseGate" id="houseGate" required onchange="toggleInput(this, 'houseCode')">
+        <option value="">Select</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <input type="text" id="houseCode" name="houseCode" placeholder="Enter house code" class="hidden">
+      <label>Is it safe to enter your yard with your dog?</label>
+      <select name="dogSafety" required>
+        <option value="">Select</option>
+        <option>Yes, my dog is friendly</option>
+        <option>No, my dog must be inside</option>
+      </select>
+      <div class="buttons">
+        <button type="button" onclick="prevStep()">Back</button>
+        <button type="button" onclick="nextStep()">Next</button>
+      </div>
+    </div>
+    <!-- Step 6 -->
+    <div class="form-step">
+      <h3>Trash Can Location</h3>
+      <label>Location:</label>
+      <select name="trashLocation" required>
+        <option value="">Select</option>
+        <option>Left</option>
+        <option>Back</option>
+        <option>Right</option>
+      </select>
+      <label>Comments:</label>
+      <textarea name="trashComments" required></textarea>
+      <label>Additional Info:</label>
+      <textarea name="extraInfo" required></textarea>
+      <div class="buttons">
+        <button type="button" onclick="prevStep()">Back</button>
+        <button type="button" onclick="nextStep()">Next</button>
+      </div>
+    </div>
+    <!-- Step 7 -->
+    <div class="form-step">
+      <h3>Review & Payment</h3>
+      <div id="summary"></div>
+      <label>Credit Card Info (placeholder):</label>
+      <input type="text" placeholder="Card Number" required>
+      <input type="text" placeholder="MM/YY" required>
+      <input type="text" placeholder="CVC" required>
+      <div class="buttons">
+        <button type="button" onclick="prevStep()">Back</button>
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>
 
-  <header>
-    <img src="2crew.png" alt="2Crew Logo">
-  </header>
+<script>
+  function toggleDropdown() {
+    document.getElementById("dropdownMenu").classList.toggle("show");
+  }
 
-  <h1>Colorado’s Trusted Pooper Scooper Pros</h1>
-  <p>
-    We’re two Colorado-born brothers, turning dog doo into done-deal. At 2Crew Pet Cleanup, we offer fast, affordable, and professional poop scooping with a local flair. Enjoy your lawn without the landmines—our service is stink-free, stress-free, and 100% satisfaction guaranteed.
-  </p>
+  function toggleInput(selectElem, inputId) {
+    const input = document.getElementById(inputId);
+    input.classList.toggle('hidden', selectElem.value !== 'yes');
+  }
 
-  <a href="quote.html" class="cta-button">Get an Instant Quote</a>
+  const steps = document.querySelectorAll('.form-step');
+  let currentStep = 0;
 
-  <section class="section">
-    <h2>What Should You Expect?</h2>
-    <ul class="feature-list">
-      <li><strong>✔ First Service is FREE</strong> with regular scheduled cleanups</li>
-      <li><strong>✔ 100% Satisfaction Guaranteed</strong></li>
-      <li><strong>✔ No Contracts</strong>, No Commitments</li>
-      <li><strong>✔ Flexible Scheduling Options</strong></li>
-      <li><strong>✔ On-the-Way & Job Completed Messages</strong></li>
-      <li><strong>✔ Photo Proof of Secured Gates</strong></li>
-      <li><strong>✔ 2Crew Branded Vehicles</strong></li>
-    </ul>
-  </section>
+  function showStep(index) {
+    steps.forEach((step, i) => step.classList.toggle('active', i === index));
+  }
 
-  <section class="section">
-    <h2>Why Pet Waste Cleanup Matters</h2>
-    <p>
-      Pet waste isn't just gross—it's a hazard. Left unattended, it can harbor bacteria like E. coli and parasites that seep into your soil and water. We’re here to keep your yard safe, clean, and totally poop-free, so you and your pets can enjoy it worry-free.
-    </p>
-  </section>
-
-  <section class="section">
-    <h2>Our Services</h2>
-    <ul class="feature-list">
-      <li><strong>🏡 Residential Pet Waste Removal</strong> – Keep your lawn fresh and clean with scheduled pickups.</li>
-      <li><strong>🏢 Commercial Cleanup</strong> – Offices, apartments, HOAs—we’ve got the scoop on group poop.</li>
-      <li><strong>🌿 Yard Deodorizing</strong> – Freshen up your outdoor space after every pickup with eco-friendly solutions.</li>
-    </ul>
-  </section>
-
-  <section class="section">
-    <h2>How It Works</h2>
-    <ol>
-      <li><strong>Step 1:</strong> Pick a Schedule – Weekly, bi-weekly, or custom plans to fit your life.</li>
-      <li><strong>Step 2:</strong> We Scoop – Our trained techs clean it all up, professionally and thoroughly.</li>
-      <li><strong>Step 3:</strong> You Relax – We text you when it’s done and even send a gate-lock confirmation pic.</li>
-    </ol>
-  </section>
-
-  <section class="section">
-    <h2>What Our Clients Say</h2>
-    <blockquote>
-      “2Crew is a life-saver. I haven’t stepped in dog poop in MONTHS.” – Jessica R.
-    </blockquote>
-    <blockquote>
-      “Fast, friendly, and my dogs love them. Local business worth supporting!” – Kyle M.
-    </blockquote>
-  </section>
-
-  <section class="section">
-    <h2>Let’s Keep Your Lawn Clean & Green</h2>
-    <p>
-      Join the 2Crew family and enjoy a cleaner, healthier yard today. No stress, no mess—just clean grass and happy paws.
-    </p>
-    <a href="quote.html" class="cta-button">Book Your Free First Scoop</a>
-  </section>
-
-  <script>
-    function toggleDropdown() {
-      document.getElementById("dropdownMenu").classList.toggle("show");
+  function nextStep() {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
     }
+  }
 
-    window.onclick = function(event) {
-      if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown");
-        for (let i = 0; i < dropdowns.length; i++) {
-          let openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
+  function prevStep() {
+    if (currentStep > 0) {
+      currentStep--;
+      showStep(currentStep);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => showStep(currentStep));
+
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      const dropdowns = document.getElementsByClassName("dropdown");
+      for (let i = 0; i < dropdowns.length; i++) {
+        let openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
         }
       }
     }
-  </script>
+  }
+</script>
 </body>
 </html>
 
