@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2Crew Pet Cleanup – Colorado’s Trusted Pooper Scoopers</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .dropdown-content {
+      display: none;
+    }
+    .dropdown.show .dropdown-content {
+      display: block;
+    }
+  </style>
+</head>
+<body class="homepage">
+  <nav>
+    <div class="dropdown" id="dropdownMenu">
+      <button class="dropbtn" onclick="toggleDropdown()">Menu ▾</button>
+      <div class="dropdown-content">
+        <a href="quote.html">Book Our Service</a>
+        <a href="about.html">About Us</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="service.html">Service Area</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <img src="2crew.png" alt="2Crew Logo">
+  </header>
+
+  <h1>Colorado’s Trusted Pooper Scooper Pros</h1>
+  <p>
+    We’re two Colorado-born brothers, turning dog doo into done-deal. At 2Crew Pet Cleanup, we offer fast, affordable, and professional poop scooping with a local flair. Enjoy your lawn without the landmines—our service is stink-free, stress-free, and 100% satisfaction guaranteed.
+  </p>
+
+  <a href="quote.html" class="cta-button">Get an Instant Quote</a>
+
+  <section class="section">
+    <h2>What Should You Expect?</h2>
+    <ul class="feature-list">
+      <li><strong>✔ First Service is FREE</strong> with regular scheduled cleanups</li>
+      <li><strong>✔ 100% Satisfaction Guaranteed</strong></li>
+      <li><strong>✔ No Contracts</strong>, No Commitments</li>
+      <li><strong>✔ Flexible Scheduling Options</strong></li>
+      <li><strong>✔ On-the-Way & Job Completed Messages</strong></li>
+      <li><strong>✔ Photo Proof of Secured Gates</strong></li>
+      <li><strong>✔ 2Crew Branded Vehicles</strong></li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Why Pet Waste Cleanup Matters</h2>
+    <p>
+      Pet waste isn't just gross—it's a hazard. Left unattended, it can harbor bacteria like E. coli and parasites that seep into your soil and water. We’re here to keep your yard safe, clean, and totally poop-free, so you and your pets can enjoy it worry-free.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Our Services</h2>
+    <ul class="feature-list">
+      <li><strong>🏡 Residential Pet Waste Removal</strong> – Keep your lawn fresh and clean with scheduled pickups.</li>
+      <li><strong>🏢 Commercial Cleanup</strong> – Offices, apartments, HOAs—we’ve got the scoop on group poop.</li>
+      <li><strong>🌿 Yard Deodorizing</strong> – Freshen up your outdoor space after every pickup with eco-friendly solutions.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>How It Works</h2>
+    <ol>
+      <li><strong>Step 1:</strong> Pick a Schedule – Weekly, bi-weekly, or custom plans to fit your life.</li>
+      <li><strong>Step 2:</strong> We Scoop – Our trained techs clean it all up, professionally and thoroughly.</li>
+      <li><strong>Step 3:</strong> You Relax – We text you when it’s done and even send a gate-lock confirmation pic.</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2>What Our Clients Say</h2>
+    <blockquote>
+      “2Crew is a life-saver. I haven’t stepped in dog poop in MONTHS.” – Jessica R.
+    </blockquote>
+    <blockquote>
+      “Fast, friendly, and my dogs love them. Local business worth supporting!” – Kyle M.
+    </blockquote>
+  </section>
+
+  <section class="section">
+    <h2>Let’s Keep Your Lawn Clean & Green</h2>
+    <p>
+      Join the 2Crew family and enjoy a cleaner, healthier yard today. No stress, no mess—just clean grass and happy paws.
+    </p>
+    <a href="quote.html" class="cta-button">Book Your Free First Scoop</a>
+  </section>
+
+  <script>
+    function toggleDropdown() {
+      document.getElementById("dropdownMenu").classList.toggle("show");
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown");
+        for (let i = 0; i < dropdowns.length; i++) {
+          let openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
